@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import validator from "validator";
 import { useAppDispatch } from "../store/hooks";
 import { loginFunc } from "../store/slices/userSlice";
@@ -8,11 +9,15 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validator.isEmail(email) && password.length > 5) {
-      dispatch(loginFunc({ email, password }));
+      dispatch(loginFunc({ email, password })).then((res) => {
+        window.localStorage.setItem("token", res.payload.token);
+        navigate("/restaurants");
+      })
     }
   };
 

@@ -11,7 +11,9 @@ export const loginFunc = createAsyncThunk(
     try {
       let loggedUser = await login(user.email, user.password);
       return loggedUser;
-    } catch (err) {}
+    } catch (err) {
+      return err;
+    }
   }
 );
 
@@ -34,7 +36,6 @@ export const userSlice = createSlice({
 
       window.localStorage.setItem("token", action.payload.token);
       state.user = action.payload.user;
-      // window.location.href = "./restaurants";
     });
     builder.addCase(loginFunc.rejected, (state, action) => {
       state.status = "rejected";
