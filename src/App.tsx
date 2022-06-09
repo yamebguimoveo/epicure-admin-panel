@@ -7,8 +7,6 @@ import { Main } from "./components/Main";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
-  console.log(window.location.href);
-
   return (
     <Provider store={store}>
       <BrowserRouter basename='/admin'>

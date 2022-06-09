@@ -1,8 +1,5 @@
 export const filterArray = (array: Array<Restaurant>, id: string) => {
   const newArray = array.filter((item) => item._id !== id);
-  console.log(newArray);
-  console.log(id);
-
   return newArray;
 };
 

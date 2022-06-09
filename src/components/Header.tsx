@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { useAppSelector } from "../store/hooks";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Header = () => {
@@ -32,7 +31,7 @@ export const Header = () => {
             <img
               className='header-logo'
               alt='header-logo'
-              src='/assets/logo.png'
+              src='https://yamepicure.s3.amazonaws.com/assets/logo/about-logo%403x.png'
             />
           </span>
 

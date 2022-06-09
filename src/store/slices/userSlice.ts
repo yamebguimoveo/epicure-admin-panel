@@ -32,8 +32,6 @@ export const userSlice = createSlice({
     });
     builder.addCase(loginFunc.fulfilled, (state, action) => {
       state.status = "fulfilled";
-      console.log(action.payload.token);
-
       window.localStorage.setItem("token", action.payload.token);
       state.user = action.payload.user;
     });

@@ -21,6 +21,16 @@ export const AddModal = (props: {
 
   const dispatch = useAppDispatch();
 
+  const resetModal = () => {
+    setChef(chefs![0].name);
+    setName("");
+    setImageSrc("");
+    setIsNew(false);
+    setIsOpen(false);
+    setIsMostPopular(false);
+    props.handleModal();
+  };
+
   const handleSubmit = () => {
     dispatch(
       addRestaurantThunk({
@@ -33,6 +43,7 @@ export const AddModal = (props: {
       })
     ).then((response) => {
       if (response.type === "add/restaurant/fulfilled") {
+        resetModal();
         toast.success("restaurant added");
       } else {
         toast.error("adding restaurant rejected");

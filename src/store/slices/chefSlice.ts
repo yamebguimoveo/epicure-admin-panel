@@ -10,8 +10,7 @@ export const getChefsThunk = createAsyncThunk("get/chefs", async () => {
   try {
     let response = await getChefs();
     return response;
-  } catch (err) {
-  }
+  } catch (err) {}
 });
 
 const initialState: ChefState = {

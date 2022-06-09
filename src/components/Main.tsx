@@ -8,6 +8,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { getChefsThunk } from "../store/slices/chefSlice";
 import { getRestaurantsThunk } from "../store/slices/restaurantSlice";
+import { Homepage } from "./Homepage";
 import { Items } from "./Items";
 import { Login } from "./Login";
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -30,7 +31,7 @@ export const Main = () => {
   return (
     <main>
       <Routes>
-        <Route path='/' element={<h1>home</h1>}></Route>
+        <Route path='/' element={<Homepage />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/chefs' element={<Login />}></Route>

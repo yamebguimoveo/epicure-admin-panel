@@ -92,8 +92,6 @@ export const restaurantSlice = createSlice({
       state.status = "rejected";
     });
     builder.addCase(deleteRestaurantThunk.fulfilled, (state, action) => {
-      console.log(action.payload);
-
       state.status = "fulfilled";
       state.restaurants = filterArray(
         state.restaurants!,
